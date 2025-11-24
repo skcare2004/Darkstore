@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DarkStore</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <button id="menu-btn">☰</button>
+  <h1 id="brand">DarkStore</h1>
+  <div class="right">
+    <button id="lang-btn">EN</button>
+    <button id="theme-btn">🌙</button>
+    <button id="cart-btn">🛒 <span id="cart-count">0</span></button>
+  </div>
+</header>
+<!-- ضع هذا داخل الـ header في index.html -->
+<a href="admin-login.html" style="
+    margin-left: 20px;
+    padding: 8px 12px;
+    background: #d6cbb3;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #3e3e3e;
+    font-weight: 600;
+    transition: 0.3s;
+">Admin Login</a>
+<!-- Sidebar -->
+<div id="sidebar" class="sidebar">
+  <button id="close-sidebar">✕</button>
+  <a href="index.html" data-lang-en="Home" data-lang-ar="الرئيسية">Home</a>
+  <a href="#categories" data-lang-en="Categories" data-lang-ar="الفئات">Categories</a>
+  <a href="#products" data-lang-en="Products" data-lang-ar="المنتجات">Products</a>
+  <a href="contact.html" data-lang-en="Contact Us" data-lang-ar="تواصل معنا">Contact Us</a>
+  <a href="about.html" data-lang-en="About" data-lang-ar="من نحن">About</a>
+</div>
+<div id="overlay" class="overlay"></div>
+
+<!-- Search Section -->
+<section class="search-container">
+  <input id="search" type="text" placeholder="Search products..." />
+</section>
+
+<!-- Categories Section -->
+<section id="categories" class="categories">
+  <h2 id="cat-title" data-lang-en="Categories" data-lang-ar="الفئات">Categories</h2>
+  <div class="cat-grid">
+    <div class="cat-card show" data-cat="all">
+      <img src="images/all.jpg" alt="All Products">
+      <h3 data-lang-en="All" data-lang-ar="الكل">All</h3>
+    </div>
+    <div class="cat-card show" data-cat="pants">
+      <img src="images/pants.jpg" alt="Pants">
+      <h3 data-lang-en="Pants" data-lang-ar="بنطال">Pants</h3>
+    </div>
+    <div class="cat-card show" data-cat="footwear">
+      <img src="images/footwear.jpg" alt="Footwear">
+      <h3 data-lang-en="Footwear" data-lang-ar="أحذية">Footwear</h3>
+    </div>
+    <div class="cat-card show" data-cat="balaclava">
+      <img src="images/balaclava.jpg" alt="Balaclava">
+      <h3 data-lang-en="Balaclava" data-lang-ar="بالاكلافا">Balaclava</h3>
+    </div>
+  </div>
+</section>
+
+<!-- Products Section -->
+<section id="products">
+  <h2 id="prod-title" data-lang-en="Products" data-lang-ar="المنتجات">Products</h2>
+  <div id="product-grid" class="product-grid"></div>
+</section>
+
+<!-- Cart Popup -->
+<div id="cart-popup" class="cart-popup">
+  <h2 id="cart-title" data-lang-en="Your Cart" data-lang-ar="السلة الخاصة بك">Your Cart</h2>
+  <div id="cart-items" class="cart-items"></div>
+  <h3 id="cart-total">Total: $0</h3>
+  <button id="checkout-btn" data-lang-en="Checkout" data-lang-ar="إتمام الشراء" onclick="window.location.href='checkout.html'">Checkout</button>
+  <button id="clear-cart" data-lang-en="Clear Cart" data-lang-ar="مسح السلة">Clear Cart</button>
+  <button id="close-cart" data-lang-en="Close" data-lang-ar="إغلاق">Close</button>
+</div>
+
+<!-- Contact Section -->
+<section id="contact" class="contact-section">
+  <h2 data-lang-en="Contact Us" data-lang-ar="تواصل معنا">Contact Us</h2>
+  <p data-lang-en="Have questions or need help? Reach out to us!"
+     data-lang-ar="هل لديك أسئلة أو تحتاج للمساعدة؟ تواصل معنا!">
+    Have questions or need help? Reach out to us!
+  </p>
+  <form id="contact-form">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="email" id="email" placeholder="Your Email" required>
+    <textarea id="message" placeholder="Your Message" rows="4" required></textarea>
+    <button type="submit" data-lang-en="Send Message" data-lang-ar="أرسل الرسالة">Send Message</button>
+  </form>
+  
+</section>
+
+<!-- Footer Section -->
+<footer class="footer">
+  
+  <div class="footer-bottom">
+    <p>© 2025 DarkStore. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

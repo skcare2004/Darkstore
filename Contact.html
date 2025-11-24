@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact DarkStore</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Header + Sidebar -->
+<header class="header">
+  <button id="menu-btn">☰</button>
+  <h1 id="brand">DarkStore</h1>
+  <div class="right">
+    <button id="lang-btn">EN</button>
+    <button id="theme-btn">🌙</button>
+    <button id="cart-btn">🛒 <span id="cart-count">0</span></button>
+  </div>
+</header>
+
+<div id="sidebar" class="sidebar">
+  <button id="close-sidebar">✕</button>
+  <a href="index.html" data-lang-en="Home" data-lang-ar="الرئيسية">Home</a>
+  <a href="contact.html" data-lang-en="Contact Us" data-lang-ar="تواصل معنا">Contact Us</a>
+  <a href="about.html" data-lang-en="About" data-lang-ar="من نحن">About</a>
+</div>
+<div id="overlay" class="overlay"></div>
+
+<section class="contact-section">
+  <h2 data-lang-en="Contact Us" data-lang-ar="تواصل معنا">Contact Us</h2>
+  <p data-lang-en="Have questions or need help? Reach out to us!"
+     data-lang-ar="هل لديك أسئلة أو تحتاج للمساعدة؟ تواصل معنا!">
+    Have questions or need help? Reach out to us!
+  </p>
+  <form id="contact-form">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="email" id="email" placeholder="Your Email" required>
+    <textarea id="message" placeholder="Your Message" rows="4" required></textarea>
+    <button type="submit" data-lang-en="Send Message" data-lang-ar="أرسل الرسالة">Send Message</button>
+  </form>
+</section>
+
+<script src="app.js"></script>
+</body>
+</html>

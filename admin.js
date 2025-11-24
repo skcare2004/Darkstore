@@ -1,0 +1,81 @@
+let products = JSON.parse(localStorage.getItem("products")) || [
+  { id: 1, name_en: "Cargo Pants", name_ar: "بنطال كارغو", price: 45, category: "pants", img:"images/pants.jpg", discount: 0, status: "" },
+  { id: 2, name_en: "Slim Jeans", name_ar: "بنطال جينز", price: 60, category: "pants", img:"images/pants.jpg", discount: 0, status: "" },
+  { id: 3, name_en: "Running Shoes", name_ar: "حذاء جري", price: 85, category: "footwear", img:"images/footwear.jpg", discount: 0, status: "" },
+  { id: 4, name_en: "Winter Boots", name_ar: "جزمة شتوي", price: 95, category: "footwear", img:"images/footwear.jpg", discount: 0, status: "" },
+  { id: 5, name_en: "Black Balaclava", name_ar: "بالاكلافا أسود", price: 20, category: "balaclava", img:"images/balaclava.jpg", discount: 0, status: "" },
+  { id: 6, name_en: "Thermal Balaclava", name_ar: "بالاكلافا حراري", price: 25, category: "balaclava", img:"images/balaclava.jpg", discount: 0, status: "" }
+];
+
+const adminProductList = document.getElementById("admin-product-list");
+const addBtn = document.getElementById("add-product-btn");
+
+function renderAdminProducts(){
+  adminProductList.innerHTML = "";
+  products.forEach(p=>{
+    adminProductList.innerHTML += `
+      <tr>
+        <td>${p.id}</td>
+        <td>${p.name_en}</td>
+        <td>${p.name_ar}</td>
+        <td>${p.category}</td>
+        <td>${p.price}</td>
+        <td>${p.discount}</td>
+        <td>${p.status || ""}</td> <!-- عرض status -->
+        <td>
+          <button onclick="editProduct(${p.id})">Edit</button>
+          <button onclick="deleteProduct(${p.id})">Delete</button>
+        </td>
+      </tr>
+    `;
+  });
+}
+
+addBtn.onclick = ()=>{
+  const name_en = document.getElementById("prod-name-en").value;
+  const name_ar = document.getElementById("prod-name-ar").value;
+  const price = parseFloat(document.getElementById("prod-price").value);
+  const category = document.getElementById("prod-category").value;
+  const img = document.getElementById("prod-img").value;
+  const discount = parseFloat(document.getElementById("prod-discount").value) || 0;
+  const status = document.getElementById("prod-status").value; // ← إضافة status
+
+  if(!name_en || !name_ar || !price || !category || !img) return alert("Fill all fields!");
+
+  let existing = products.find(p=>p.name_en===name_en);
+  if(existing){
+    existing.name_ar = name_ar;
+    existing.price = price;
+    existing.category = category;
+    existing.img = img;
+    existing.discount = discount;
+    existing.status = status; // ← تحديث status عند التعديل
+  } else {
+    const id = products.length ? products[products.length-1].id +1 : 1;
+    products.push({id,name_en,name_ar,price,category,img,discount,status}); // ← إضافة status
+  }
+
+  localStorage.setItem("products", JSON.stringify(products));
+  renderAdminProducts();
+  alert("Product saved!");
+}
+
+function editProduct(id){
+  const p = products.find(x=>x.id===id);
+  document.getElementById("prod-name-en").value = p.name_en;
+  document.getElementById("prod-name-ar").value = p.name_ar;
+  document.getElementById("prod-price").value = p.price;
+  document.getElementById("prod-category").value = p.category;
+  document.getElementById("prod-img").value = p.img;
+  document.getElementById("prod-discount").value = p.discount;
+  document.getElementById("prod-status").value = p.status || ""; // ← تعديل dropdown عند التعديل
+}
+
+function deleteProduct(id){
+  if(!confirm("Are you sure?")) return;
+  products = products.filter(p=>p.id!==id);
+  localStorage.setItem("products", JSON.stringify(products));
+  renderAdminProducts();
+}
+
+renderAdminProducts();
