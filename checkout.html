@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - DarkStore</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"/>
+</head>
+<body>
+
+<!-- Header + Sidebar -->
+<header class="header">
+  <button id="menu-btn">☰</button>
+  <h1 id="brand">DarkStore</h1>
+  <div class="right">
+    <button id="lang-btn">EN</button>
+    <button id="theme-btn">🌙</button>
+    <button id="cart-btn">🛒 <span id="cart-count">0</span></button>
+  </div>
+</header>
+
+<div id="sidebar" class="sidebar">
+  <button id="close-sidebar">✕</button>
+  <a href="index.html" data-lang-en="Home" data-lang-ar="الرئيسية">Home</a>
+  <a href="contact.html" data-lang-en="Contact Us" data-lang-ar="تواصل معنا">Contact Us</a>
+  <a href="about.html" data-lang-en="About" data-lang-ar="من نحن">About</a>
+</div>
+<div id="overlay" class="overlay"></div>
+
+<section class="checkout-section">
+  <h2 data-lang-en="Billing Details" data-lang-ar="تفاصيل الفوترة">Billing Details</h2>
+  <form id="checkout-form">
+    <div class="form-row">
+      <input type="text" id="first-name" placeholder="First Name*" required>
+      <input type="text" id="last-name" placeholder="Last Name*" required>
+    </div>
+
+    <div class="form-row">
+      <select id="country" required>
+        <option value="">Country / Region*</option>
+        <option value="EG">Egypt</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <input type="text" id="street" placeholder="Street Address*" required>
+      <input type="text" id="city" placeholder="Town / City*" required>
+    </div>
+
+    <div class="form-row">
+      <select id="state" placeholder="State / County*" required>
+        <option value="">Select an option...</option>
+        <option value="alex">الاسكندريه</option>
+        <option value="aswan">اسيوط</option>
+        <option value="aswan">اسوان</option>
+        <option value="bani-suef">بني سويف</option>
+        <option value="beheira">البحيره</option>
+        <option value="cairo">القاهره</option>
+        <option value="dakahlia">الدقهليه</option>
+        <option value="damietta">دمياط</option>
+        <option value="qalyubia">القليوبيه</option>
+        <option value="fyom">الفيوم</option>
+        <option value="giza">الغربيه</option>
+        <option value="giza2">الجيزه</option>
+        <option value="ismailia">الاسماعيليه</option>
+        <option value="kafr-elsheikh">كفر الشيخ</option>
+        <option value="luxor">الاقصر</option>
+        <option value="mars-matruh">مرسي مطروح</option>
+        <option value="minya">المنيا</option>
+        <option value="menofia">المنوفيه</option>
+        <option value="wadi-nigde">الوادي الجديد</option>
+        <option value="north-coast">الساحل الشمالي</option>
+        <option value="port-said">بور سعيد</option>
+        <option value="qena">قنا</option>
+        <option value="red-sea">البحر الاحمر</option>
+        <option value="sharqia">الشرقيه</option>
+        <option value="sohag">سوهاج</option>
+        <option value="south-sinai">جنوب سيناء</option>
+        <option value="suez">السويس</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <input type="text" id="postcode" placeholder="Postcode / ZIP (optional)">
+      <input type="tel" id="phone" placeholder="Phone*" required>
+    </div>
+
+    <div class="form-row">
+      <input type="email" id="email" placeholder="Email address (optional)">
+    </div>
+
+    <div class="form-row">
+      <textarea id="order-notes" placeholder="Order Notes (optional)"></textarea>
+    </div>
+
+    <h3 data-lang-en="Your Order" data-lang-ar="طلبك">Your Order</h3>
+    <div id="order-summary"></div>
+
+    <h3 data-lang-en="Payment Method" data-lang-ar="طريقة الدفع">Payment Method</h3>
+    <div class="payment-methods">
+      <label>
+        <input type="radio" name="payment" value="online" checked> Online Payment
+      </label>
+      <label>
+        <input type="radio" name="payment" value="cod"> Cash on Delivery
+      </label>
+    </div>
+
+    <label>
+      <input type="checkbox" id="terms" required> I have read and agree to the website terms and conditions*
+    </label>
+
+    <button type="submit" id="place-order-btn" data-lang-en="Place Order" data-lang-ar="أتمام الطلب">Place Order</button>
+  </form>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+<script src="app.js"></script>
+<script src="checkout.js"></script>
+</body>
+</html>

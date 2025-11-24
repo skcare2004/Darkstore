@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel - DarkStore</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .admin-container { max-width: 900px; margin: 80px auto; padding: 20px; background: #fff; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    h2,h3 { text-align: center; margin-bottom: 20px; color: #3e3e3e; }
+    .form-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 15px; }
+    .form-row input, .form-row select { flex: 1; padding: 10px; border-radius: 12px; border: 1px solid #ddd; }
+    button { padding: 10px 15px; border-radius: 12px; border: none; background: #d6cbb3; cursor: pointer; font-weight: 600; }
+    button:hover { background: #cbbf9d; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    table, th, td { border: 1px solid #ddd; }
+    th, td { padding: 10px; text-align: center; }
+    #logout-btn, #orders-btn { float: right; margin-left: 10px; margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <h1 id="brand">DarkStore Admin</h1>
+  <button id="orders-btn" onclick="window.location.href='orders.html'">Orders</button>
+  <button id="logout-btn">Logout</button>
+</header>
+
+<div class="admin-container">
+  <h2>Admin Panel</h2>
+
+  <h3>Add / Update Product</h3>
+  <div class="form-row">
+    <input type="text" id="prod-name-en" placeholder="Product Name (EN)">
+    <input type="text" id="prod-name-ar" placeholder="Product Name (AR)">
+    <input type="number" id="prod-price" placeholder="Price">
+  </div>
+  <div class="form-row">
+    <input type="text" id="prod-category" placeholder="Category">
+    <input type="text" id="prod-img" placeholder="Image URL">
+    <input type="number" id="prod-discount" placeholder="Discount (%)">
+    <select id="prod-status">
+      <option value="">None</option>
+      <option value="hot">HOT</option>
+      <option value="new">NEW</option>
+      <option value="out">OUT OF STOCK</option>
+    </select>
+    <input type="number" id="prod-stock" placeholder="Quantity" min="0">
+  </div>
+  <button id="add-product-btn">Add / Update Product</button>
+
+  <h3>Products List</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name (EN)</th>
+        <th>Name (AR)</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Discount</th>
+        <th>Status</th>
+        <th>Stock</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="admin-product-list"></tbody>
+  </table>
+</div>
+
+<script src="admin.js"></script>
+<script>
+if(localStorage.getItem("adminLoggedIn") !== "true"){
+  window.location.href = "admin-login.html";
+}
+
+document.getElementById("logout-btn").onclick = ()=>{
+  localStorage.removeItem("adminLoggedIn");
+  window.location.href = "admin-login.html";
+}
+</script>
+
+</body>
+</html>

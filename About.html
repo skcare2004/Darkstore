@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About DarkStore</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Header + Sidebar -->
+<header class="header">
+  <button id="menu-btn">☰</button>
+  <h1 id="brand">DarkStore</h1>
+  <div class="right">
+    <button id="lang-btn">EN</button>
+    <button id="theme-btn">🌙</button>
+    <button id="cart-btn">🛒 <span id="cart-count">0</span></button>
+  </div>
+</header>
+
+<div id="sidebar" class="sidebar">
+  <button id="close-sidebar">✕</button>
+  <a href="index.html" data-lang-en="Home" data-lang-ar="الرئيسية">Home</a>
+  <a href="contact.html" data-lang-en="Contact Us" data-lang-ar="تواصل معنا">Contact Us</a>
+  <a href="about.html" data-lang-en="About" data-lang-ar="من نحن">About</a>
+</div>
+<div id="overlay" class="overlay"></div>
+
+<!-- About Section -->
+<section class="about-section">
+  <h2 data-lang-en="About Us" data-lang-ar="من نحن">About Us</h2>
+  <p data-lang-en="Welcome to DarkStore! Here you can find the best products for all your needs."
+     data-lang-ar="مرحباً بكم في DarkStore! هنا يمكنك العثور على أفضل المنتجات لجميع احتياجاتك.">
+    Welcome to DarkStore! Here you can find the best products for all your needs.
+  </p>
+
+  <!-- Social Links -->
+  <div class="social-links">
+    <a href="https://www.facebook.com/yourpage" target="_blank">
+      <img src="icons/facebook.png" alt="Facebook">
+    </a>
+    <a href="https://www.instagram.com/yourpage" target="_blank">
+      <img src="icons/instagram.png" alt="Instagram">
+    </a>
+    <a href="https://www.tiktok.com/@yourpage" target="_blank">
+      <img src="icons/tiktok.png" alt="TikTok">
+    </a>
+    <a href="https://wa.me/yourphone" target="_blank">
+      <img src="icons/whatsapp.png" alt="WhatsApp">
+    </a>
+  </div>
+</section>
+
+<script src="app.js"></script>
+</body>
+</html>
